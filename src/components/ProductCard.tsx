@@ -31,15 +31,17 @@ export function ProductCard({ product, priority = false, sizes = "(min-width: 12
 
   return (
     <article className="group/card relative">
-      <div className={`relative aspect-[4/5] overflow-hidden ${dark ? "bg-ink" : "bg-studio"}`}>
+      <div className="relative aspect-[4/5] overflow-hidden" style={{ background: a.bg }}>
         <Link href={href} aria-label={`${product.name}, ${COLORWAYS[color].name}`} className="absolute inset-0 block">
           {/* hover devices: crossfade between front and back */}
           <div className="absolute inset-0 hidden [@media(hover:hover)]:block">
             <AnimatePresence initial={false}>
               <motion.div key={a.src} className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.5 }}>
-                <Image src={a.src} alt={a.alt} fill sizes={sizes} priority={priority} className="object-cover transition-transform duration-[1.4s] ease-[var(--ease-out-expo)] group-hover/card:scale-[1.035]" />
+                <Image src={a.src} alt={a.alt} fill sizes={sizes} priority={priority} className={`${a.fit === "contain" ? "object-contain p-3" : "object-cover"} transition-transform duration-[1.4s] ease-[var(--ease-out-expo)] group-hover/card:scale-[1.035]`} />
                 {b && (
-                  <Image src={b.src} alt="" fill sizes={sizes} className="object-cover opacity-0 transition-opacity duration-700 ease-[var(--ease-out-expo)] group-hover/card:opacity-100" />
+                  <div className="absolute inset-0 opacity-0 transition-opacity duration-700 ease-[var(--ease-out-expo)] group-hover/card:opacity-100" style={{ background: b.bg }}>
+                    <Image src={b.src} alt="" fill sizes={sizes} className={b.fit === "contain" ? "object-contain p-3" : "object-cover"} />
+                  </div>
                 )}
               </motion.div>
             </AnimatePresence>
@@ -54,8 +56,8 @@ export function ProductCard({ product, priority = false, sizes = "(min-width: 12
             }}
           >
             {[a, b].filter(Boolean).map((img, i) => (
-              <div key={img!.src} className="relative h-full w-full shrink-0 snap-start">
-                <Image src={img!.src} alt={i === 0 ? img!.alt : ""} fill sizes={sizes} priority={priority && i === 0} className="object-cover" />
+              <div key={img!.src} className="relative h-full w-full shrink-0 snap-start" style={{ background: img!.bg }}>
+                <Image src={img!.src} alt={i === 0 ? img!.alt : ""} fill sizes={sizes} priority={priority && i === 0} className={img!.fit === "contain" ? "object-contain p-2" : "object-cover"} />
               </div>
             ))}
           </div>

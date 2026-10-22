@@ -1,0 +1,417 @@
+{
+  "washed-heavyweight-hoodie": {
+    "washed-black": [
+      {
+        "role": "lifestyle",
+        "src": "/products/washed-heavyweight-hoodie/washed-black/lifestyle.webp",
+        "width": 757,
+        "height": 891,
+        "bg": "#1d1c19",
+        "alt": "worn by a model in a dark training space",
+        "needsHiRes": true
+      },
+      {
+        "role": "front",
+        "src": "/products/washed-heavyweight-hoodie/washed-black/front.webp",
+        "width": 540,
+        "height": 462,
+        "bg": "#141413",
+        "alt": "front view",
+        "needsHiRes": true
+      },
+      {
+        "role": "back",
+        "src": "/products/washed-heavyweight-hoodie/washed-black/back.webp",
+        "width": 540,
+        "height": 421,
+        "bg": "#131313",
+        "alt": "back view",
+        "needsHiRes": true
+      },
+      {
+        "role": "logo-detail",
+        "src": "/products/washed-heavyweight-hoodie/washed-black/logo-detail.webp",
+        "width": 427,
+        "height": 301,
+        "bg": "#121213",
+        "alt": "close-up of the BLK ANVL monogram",
+        "needsHiRes": true
+      },
+      {
+        "role": "label-detail",
+        "src": "/products/washed-heavyweight-hoodie/washed-black/label-detail.webp",
+        "width": 436,
+        "height": 301,
+        "bg": "#0d0d0e",
+        "alt": "close-up of the woven BLK ANVL label",
+        "needsHiRes": true
+      },
+      {
+        "role": "fabric-detail",
+        "src": "/products/washed-heavyweight-hoodie/washed-black/fabric-detail.webp",
+        "width": 431,
+        "height": 301,
+        "bg": "#101011",
+        "alt": "close-up of the fabric and stitching",
+        "needsHiRes": true
+      }
+    ]
+  },
+  "essential-oversized-tee": {
+    "obsidian": [
+      {
+        "role": "lifestyle",
+        "src": "/products/essential-oversized-tee/obsidian/lifestyle.webp",
+        "width": 752,
+        "height": 890,
+        "bg": "#161514",
+        "alt": "worn by a model in a dark training space",
+        "needsHiRes": true
+      },
+      {
+        "role": "front",
+        "src": "/products/essential-oversized-tee/obsidian/front.webp",
+        "width": 545,
+        "height": 463,
+        "bg": "#111110",
+        "alt": "front view",
+        "needsHiRes": true
+      },
+      {
+        "role": "back",
+        "src": "/products/essential-oversized-tee/obsidian/back.webp",
+        "width": 545,
+        "height": 419,
+        "bg": "#0f0f0e",
+        "alt": "back view",
+        "needsHiRes": true
+      },
+      {
+        "role": "logo-detail",
+        "src": "/products/essential-oversized-tee/obsidian/logo-detail.webp",
+        "width": 427,
+        "height": 302,
+        "bg": "#101010",
+        "alt": "close-up of the BLK ANVL monogram",
+        "needsHiRes": true
+      },
+      {
+        "role": "label-detail",
+        "src": "/products/essential-oversized-tee/obsidian/label-detail.webp",
+        "width": 439,
+        "height": 302,
+        "bg": "#0b0b0b",
+        "alt": "close-up of the woven BLK ANVL label",
+        "needsHiRes": true
+      },
+      {
+        "role": "fabric-detail",
+        "src": "/products/essential-oversized-tee/obsidian/fabric-detail.webp",
+        "width": 428,
+        "height": 302,
+        "bg": "#0c0b0b",
+        "alt": "close-up of the fabric and stitching",
+        "needsHiRes": true
+      }
+    ]
+  },
+  "compression-tee": {
+    "obsidian": [
+      {
+        "role": "lifestyle",
+        "src": "/products/compression-tee/obsidian/lifestyle.webp",
+        "width": 762,
+        "height": 890,
+        "bg": "#10100f",
+        "alt": "worn by a model in a dark training space",
+        "needsHiRes": true
+      },
+      {
+        "role": "front",
+        "src": "/products/compression-tee/obsidian/front.webp",
+        "width": 535,
+        "height": 459,
+        "bg": "#101010",
+        "alt": "front view",
+        "needsHiRes": true
+      },
+      {
+        "role": "back",
+        "src": "/products/compression-tee/obsidian/back.webp",
+        "width": 535,
+        "height": 423,
+        "bg": "#0e0e0e",
+        "alt": "back view",
+        "needsHiRes": true
+      },
+      {
+        "role": "logo-detail",
+        "src": "/products/compression-tee/obsidian/logo-detail.webp",
+        "width": 429,
+        "height": 302,
+        "bg": "#0d0c0d",
+        "alt": "close-up of the BLK ANVL monogram",
+        "needsHiRes": true
+      },
+      {
+        "role": "label-detail",
+        "src": "/products/compression-tee/obsidian/label-detail.webp",
+        "width": 437,
+        "height": 302,
+        "bg": "#0e0e0e",
+        "alt": "close-up of the woven BLK ANVL label",
+        "needsHiRes": true
+      },
+      {
+        "role": "fabric-detail",
+        "src": "/products/compression-tee/obsidian/fabric-detail.webp",
+        "width": 428,
+        "height": 302,
+        "bg": "#0a0a0a",
+        "alt": "close-up of the fabric and stitching",
+        "needsHiRes": true
+      }
+    ]
+  },
+  "flared-leggings": {
+    "obsidian": [
+      {
+        "role": "lifestyle",
+        "src": "/products/flared-leggings/obsidian/lifestyle.webp",
+        "width": 715,
+        "height": 862,
+        "bg": "#1a1918",
+        "alt": "worn by a model in a dark training space",
+        "needsHiRes": true
+      },
+      {
+        "role": "front",
+        "src": "/products/flared-leggings/obsidian/front.webp",
+        "width": 291,
+        "height": 862,
+        "bg": "#0b0b0b",
+        "alt": "front view",
+        "needsHiRes": true
+      },
+      {
+        "role": "back",
+        "src": "/products/flared-leggings/obsidian/back.webp",
+        "width": 291,
+        "height": 862,
+        "bg": "#0c0c0c",
+        "alt": "back view",
+        "needsHiRes": true
+      },
+      {
+        "role": "logo-detail",
+        "src": "/products/flared-leggings/obsidian/logo-detail.webp",
+        "width": 429,
+        "height": 330,
+        "bg": "#0e0e0f",
+        "alt": "close-up of the BLK ANVL monogram",
+        "needsHiRes": true
+      },
+      {
+        "role": "label-detail",
+        "src": "/products/flared-leggings/obsidian/label-detail.webp",
+        "width": 434,
+        "height": 330,
+        "bg": "#0b0b0c",
+        "alt": "close-up of the woven BLK ANVL label",
+        "needsHiRes": true
+      },
+      {
+        "role": "fabric-detail",
+        "src": "/products/flared-leggings/obsidian/fabric-detail.webp",
+        "width": 431,
+        "height": 330,
+        "bg": "#0b0b0c",
+        "alt": "close-up of the fabric and stitching",
+        "needsHiRes": true
+      }
+    ]
+  },
+  "womens-training-shorts": {
+    "obsidian": [
+      {
+        "role": "lifestyle",
+        "src": "/products/womens-training-shorts/obsidian/lifestyle.webp",
+        "width": 751,
+        "height": 861,
+        "bg": "#0c0c0d",
+        "alt": "worn by a model in a dark training space",
+        "needsHiRes": true
+      },
+      {
+        "role": "front",
+        "src": "/products/womens-training-shorts/obsidian/front.webp",
+        "width": 546,
+        "height": 463,
+        "bg": "#111111",
+        "alt": "front view",
+        "needsHiRes": true
+      },
+      {
+        "role": "back",
+        "src": "/products/womens-training-shorts/obsidian/back.webp",
+        "width": 546,
+        "height": 390,
+        "bg": "#0d0d0d",
+        "alt": "back view",
+        "needsHiRes": true
+      },
+      {
+        "role": "logo-detail",
+        "src": "/products/womens-training-shorts/obsidian/logo-detail.webp",
+        "width": 428,
+        "height": 331,
+        "bg": "#0c0c0d",
+        "alt": "close-up of the BLK ANVL monogram",
+        "needsHiRes": true
+      },
+      {
+        "role": "label-detail",
+        "src": "/products/womens-training-shorts/obsidian/label-detail.webp",
+        "width": 434,
+        "height": 331,
+        "bg": "#080808",
+        "alt": "close-up of the woven BLK ANVL label",
+        "needsHiRes": true
+      },
+      {
+        "role": "fabric-detail",
+        "src": "/products/womens-training-shorts/obsidian/fabric-detail.webp",
+        "width": 432,
+        "height": 331,
+        "bg": "#0a0a0a",
+        "alt": "close-up of the fabric and stitching",
+        "needsHiRes": true
+      }
+    ]
+  },
+  "contour-shorts": {
+    "obsidian": [
+      {
+        "role": "lifestyle",
+        "src": "/products/contour-shorts/obsidian/lifestyle.webp",
+        "width": 702,
+        "height": 850,
+        "bg": "#121110",
+        "alt": "worn by a model in a dark training space",
+        "needsHiRes": true
+      },
+      {
+        "role": "front",
+        "src": "/products/contour-shorts/obsidian/front.webp",
+        "width": 597,
+        "height": 426,
+        "bg": "#0e0d0d",
+        "alt": "front view",
+        "needsHiRes": true
+      },
+      {
+        "role": "back",
+        "src": "/products/contour-shorts/obsidian/back.webp",
+        "width": 597,
+        "height": 416,
+        "bg": "#0c0c0c",
+        "alt": "back view",
+        "needsHiRes": true
+      },
+      {
+        "role": "logo-detail",
+        "src": "/products/contour-shorts/obsidian/logo-detail.webp",
+        "width": 350,
+        "height": 341,
+        "bg": "#0b0b0b",
+        "alt": "close-up of the BLK ANVL monogram",
+        "needsHiRes": true
+      },
+      {
+        "role": "label-detail",
+        "src": "/products/contour-shorts/obsidian/label-detail.webp",
+        "width": 318,
+        "height": 341,
+        "bg": "#090909",
+        "alt": "close-up of the woven BLK ANVL label",
+        "needsHiRes": true
+      },
+      {
+        "role": "fabric-detail",
+        "src": "/products/contour-shorts/obsidian/fabric-detail.webp",
+        "width": 284,
+        "height": 341,
+        "bg": "#0b0a0a",
+        "alt": "close-up of the fabric and stitching",
+        "needsHiRes": true
+      },
+      {
+        "role": "fabric-detail-2",
+        "src": "/products/contour-shorts/obsidian/fabric-detail-2.webp",
+        "width": 336,
+        "height": 341,
+        "bg": "#0e0e0e",
+        "alt": "close-up of the hem and seam construction",
+        "needsHiRes": true
+      }
+    ]
+  },
+  "training-shorts": {
+    "obsidian": [
+      {
+        "role": "lifestyle",
+        "src": "/products/training-shorts/obsidian/lifestyle.webp",
+        "width": 739,
+        "height": 870,
+        "bg": "#211d19",
+        "alt": "worn by a model in a dark training space",
+        "needsHiRes": true
+      },
+      {
+        "role": "front",
+        "src": "/products/training-shorts/obsidian/front.webp",
+        "width": 560,
+        "height": 445,
+        "bg": "#131313",
+        "alt": "front view",
+        "needsHiRes": true
+      },
+      {
+        "role": "back",
+        "src": "/products/training-shorts/obsidian/back.webp",
+        "width": 560,
+        "height": 417,
+        "bg": "#0f0f0f",
+        "alt": "back view",
+        "needsHiRes": true
+      },
+      {
+        "role": "logo-detail",
+        "src": "/products/training-shorts/obsidian/logo-detail.webp",
+        "width": 433,
+        "height": 321,
+        "bg": "#0d0d0d",
+        "alt": "close-up of the BLK ANVL monogram",
+        "needsHiRes": true
+      },
+      {
+        "role": "label-detail",
+        "src": "/products/training-shorts/obsidian/label-detail.webp",
+        "width": 429,
+        "height": 321,
+        "bg": "#0a0a0a",
+        "alt": "close-up of the woven BLK ANVL label",
+        "needsHiRes": true
+      },
+      {
+        "role": "fabric-detail",
+        "src": "/products/training-shorts/obsidian/fabric-detail.webp",
+        "width": 434,
+        "height": 321,
+        "bg": "#0e0e0e",
+        "alt": "close-up of the fabric and stitching",
+        "needsHiRes": true
+      }
+    ]
+  }
+}

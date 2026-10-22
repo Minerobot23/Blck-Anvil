@@ -53,11 +53,11 @@ export function QuickView() {
             transition={{ duration: 0.6, ease: EASE }}
             data-lenis-prevent
           >
-            <div className={`relative aspect-[4/5] w-full ${img?.tone === "dark" ? "bg-ink" : "bg-studio"} max-md:max-h-[52svh] max-md:aspect-auto max-md:h-[52svh]`}>
+            <div className="relative aspect-[4/5] w-full max-md:aspect-auto max-md:h-[52svh] max-md:max-h-[52svh]" style={{ background: img?.bg }}>
               <AnimatePresence initial={false}>
                 {img && (
                   <motion.div key={img.src} className="absolute inset-0" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.4 }}>
-                    <Image src={img.src} alt={img.alt} fill sizes="(min-width:768px) 520px, 100vw" className="object-cover" />
+                    <Image src={img.src} alt={img.alt} fill sizes="(min-width:768px) 520px, 100vw" className={img.fit === "contain" ? "object-contain p-4" : "object-cover"} />
                   </motion.div>
                 )}
               </AnimatePresence>

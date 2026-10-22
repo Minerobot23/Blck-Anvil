@@ -21,7 +21,7 @@ Deploys to Vercel with no extra configuration. Optional env: `NEXT_PUBLIC_SITE_U
 | Checkout boundary | `src/lib/commerce.ts`, `src/app/api/checkout/route.ts` |
 | Homepage sections | `src/components/home/*` |
 | Shop listing / filters / sort | `src/components/shop/ShopView.tsx` |
-| Product page | `src/components/pdp/ProductView.tsx` |
+| Product page | `src/components/pdp/ProductView.tsx`, gallery + full-screen viewer in `src/components/pdp/Gallery.tsx` |
 
 Routes: `/`, `/shop`, `/men`, `/women`, `/new`, `/collections`, `/collections/[slug]`, `/products/[slug]`, `/about`, `/size-guide`, `/contact`, `/faq`, `/shipping-returns`, `/privacy`, `/terms`, `/cart`, `/checkout`, `/account`, plus `sitemap.xml` and `robots.txt`.
 
@@ -29,8 +29,9 @@ Routes: `/`, `/shop`, `/men`, `/women`, `/new`, `/collections`, `/collections/[s
 
 See **`docs/ASSETS.md`** for the full manifest. In short:
 
-- **Brand photography** (`public/photo/`) is cropped from the supplied BLK ANVL hoodie reference board. It is used for the Washed Heavyweight Hoodie in Washed Black and in editorial sections.
-- **Product images** (`public/products/`) are **studio renders** produced by the in-repo garment render engine (`scripts/garments.mjs`, `scripts/render-products.mjs`). Every garment is drawn with the actual BLK ANVL mark placed, lit and textured on the fabric. Product pages state that renders are shown and final photography is to follow.
+- **Product photography** (`public/products/<slug>/<colour>/`) is split from the supplied BLK ANVL collages (`assets/collages/`) with `python3 scripts/split-collages.py`, which also writes `src/data/photo-manifest.json`. Seven products have real photography in their black colourway.
+- **Brand photography** (`public/photo/`) is cropped from the original hoodie reference board and used in editorial sections.
+- **Other colourways** use **studio renders** produced by the in-repo garment render engine (`scripts/garments.mjs`, `scripts/render-products.mjs`). Product pages say photography for that colour is pending.
 - **Campaign mood images** (`public/campaign/`) are licensed Unsplash photographs, graded to monochrome. They show training environments and athletes, **not BLK ANVL product**, and are never used as product imagery. Replace with a BLK ANVL campaign shoot.
 
 Re-render the catalog after changing products or colours:

@@ -30,7 +30,7 @@ Colourways: Obsidian, Slate, Stone. Fit: Compression fit. Designed to sit close 
 2. **Back (studio):** BLK ANVL Compression Tee in obsidian, back view, ghost mannequin, same lighting as the front shot, showing the back branding.
 3. **Logo detail:** extreme close-up macro of the monogram printed on the left sleeve near the hem on the obsidian fabric, raking light revealing the print sitting into the knit.
 4. **Lifestyle (model):** athletic male model wearing the BLK ANVL Compression Tee in obsidian, mid-training in a dark industrial gym, hard side light, editorial, garment fit accurate to "Compression fit".
-5. **Alternate angle:** BLK ANVL Compression Tee in obsidian, three-quarter side view on model or folded flat-lay on dark concrete, showing construction (flatlock seams, four-way stretch).
+5. **Alternate angle:** BLK ANVL Compression Tee in obsidian, three-quarter side view on model or folded flat-lay on dark concrete, showing construction (flatlock seams, raglan sleeves).
 
 ## Performance Tank (Men) — `mens-performance-tank`
 
@@ -121,6 +121,16 @@ Colourways: Obsidian, Stone, Slate. Fit: High rise. 5" inseam (size S). Fabric: 
 3. **Logo detail:** extreme close-up macro of the monogram printed near the hem of the left leg on the obsidian fabric, raking light revealing the print sitting into the knit.
 4. **Lifestyle (model):** athletic female model wearing the BLK ANVL Contour Shorts in obsidian, mid-training in a dark industrial gym, hard side light, editorial, garment fit accurate to "High rise".
 5. **Alternate angle:** BLK ANVL Contour Shorts in obsidian, three-quarter side view on model or folded flat-lay on dark concrete, showing construction (high-rise waistband, contour waist seam).
+
+## Split Hem Training Shorts (Women) — `womens-training-shorts`
+
+Colourways: Obsidian. Fit: Relaxed fit. Mid rise. Fabric: Lightweight stretch woven. Branding: small monogram printed near the hem of the left leg; tiny wordmark on the back waistband.
+
+1. **Front (studio):** BLK ANVL Split Hem Training Shorts in obsidian, front view, ghost mannequin, relaxed fit. curved split hem. Show small monogram printed near the hem of the left leg.
+2. **Back (studio):** BLK ANVL Split Hem Training Shorts in obsidian, back view, ghost mannequin, same lighting as the front shot, showing the back branding.
+3. **Logo detail:** extreme close-up macro of the monogram printed near the hem of the left leg on the obsidian fabric, raking light revealing the print sitting into the knit.
+4. **Lifestyle (model):** athletic female model wearing the BLK ANVL Split Hem Training Shorts in obsidian, mid-training in a dark industrial gym, hard side light, editorial, garment fit accurate to "Relaxed fit".
+5. **Alternate angle:** BLK ANVL Split Hem Training Shorts in obsidian, three-quarter side view on model or folded flat-lay on dark concrete, showing construction (elastic drawcord waistband, curved split hem).
 
 ## Cropped Performance Tee (Women) — `cropped-performance-tee`
 

@@ -1,19 +1,33 @@
+import photoManifest from "@/data/photo-manifest.json";
 import { CATALOG, COLORWAYS, type ColorId, type RawProduct, type Category, type CollectionId, type Gender } from "@/data/catalog";
 
 export { COLORWAYS };
 export type { ColorId, Category, CollectionId, Gender };
 
+export type ImageRole = "lifestyle" | "front" | "back" | "logo-detail" | "label-detail" | "fabric-detail" | "fabric-detail-2" | "detail" | "texture";
+
 export type ProductImage = {
   src: string;
   alt: string;
+  /** photo = real photography from the product shoots; render = studio render placeholder */
   kind: "render" | "photo";
+  role: ImageRole;
   /** photos are shot on black; renders on light studio grey */
   tone: "dark" | "light";
+  width: number;
+  height: number;
+  /** letterbox colour sampled from the image edge, so contained images sit seamlessly */
+  bg: string;
+  /** landscape product shots are shown whole (contain); portraits fill the frame (cover) */
+  fit: "cover" | "contain";
+  needsHiRes?: boolean;
 };
 
 export type Product = RawProduct & {
   fullName: string;
   images: Record<ColorId, ProductImage[]>;
+  /** colourways that have real photography */
+  photoColors: ColorId[];
 };
 
 export const SHOTS = ["front", "back", "detail", "texture"] as const;
@@ -24,28 +38,39 @@ const SHOT_LABEL: Record<(typeof SHOTS)[number], string> = {
   texture: "fabric and construction detail",
 };
 
+type ManifestItem = { role: ImageRole; src: string; width: number; height: number; bg: string; alt: string; needsHiRes: boolean };
+const MANIFEST = photoManifest as Record<string, Partial<Record<ColorId, ManifestItem[]>>>;
+
 function buildImages(p: RawProduct): Record<ColorId, ProductImage[]> {
   const out = {} as Record<ColorId, ProductImage[]>;
   for (const c of p.colors) {
     const color = COLORWAYS[c].name;
-    const renders: ProductImage[] = SHOTS.map((s) => ({
-      src: `/products/${p.slug}/${c}-${s}.webp`,
-      alt: `BLK ANVL ${p.name} in ${color}, ${SHOT_LABEL[s]}`,
-      kind: "render",
-      tone: "light",
-    }));
-    if (p.photoColor === c) {
-      const ph = (src: string, what: string): ProductImage => ({ src, alt: `BLK ANVL ${p.name} in ${color}, ${what}`, kind: "photo", tone: "dark" });
-      out[c] = [
-        ph("/photo/hoodie-front.webp", "front"),
-        ph("/photo/hoodie-back.webp", "back with wordmark"),
-        ph("/photo/detail-monogram.webp", "embroidered chest monogram"),
-        ph("/photo/detail-wordmark.webp", "printed back wordmark"),
-        ph("/photo/detail-label.webp", "woven neck label"),
-        ph("/photo/detail-shoulder.webp", "dropped shoulder seam"),
-      ];
+    const photos = MANIFEST[p.slug]?.[c];
+    if (photos?.length) {
+      out[c] = photos.map((m) => ({
+        src: m.src,
+        alt: `BLK ANVL ${p.name} in ${color}, ${m.alt}`,
+        kind: "photo",
+        role: m.role,
+        tone: "dark",
+        width: m.width,
+        height: m.height,
+        bg: m.bg,
+        fit: m.width / m.height > 0.9 ? "contain" : "cover",
+        needsHiRes: m.needsHiRes,
+      }));
     } else {
-      out[c] = renders;
+      out[c] = SHOTS.map((s) => ({
+        src: `/products/${p.slug}/${c}-${s}.webp`,
+        alt: `BLK ANVL ${p.name} in ${color}, ${SHOT_LABEL[s]} (studio render)`,
+        kind: "render",
+        role: s,
+        tone: "light",
+        width: 1200,
+        height: 1500,
+        bg: "#e6e4df",
+        fit: "cover",
+      }));
     }
   }
   return out;
@@ -55,6 +80,7 @@ export const PRODUCTS: Product[] = CATALOG.map((p) => ({
   ...p,
   fullName: `BLK ANVL ${p.name}`,
   images: buildImages(p),
+  photoColors: p.colors.filter((c) => !!MANIFEST[p.slug]?.[c]?.length),
 }));
 
 export function getProduct(slug: string) {

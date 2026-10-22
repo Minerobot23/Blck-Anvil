@@ -4,13 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, ChevronDown, ChevronLeft, ChevronRight, Ruler, Truck, RotateCcw, X, ZoomIn } from "lucide-react";
-import { COLORWAYS, formatPrice, getProduct, stockFor, stockState, type ColorId, type ProductImage } from "@/lib/products";
+import { Check, ChevronDown, Ruler, Truck, RotateCcw, X } from "lucide-react";
+import { COLORWAYS, formatPrice, getProduct, stockFor, stockState, type ColorId } from "@/lib/products";
 import { SizePicker, Swatches, useAddToBag } from "../ProductBits";
 import { SizeTable } from "../SizeTable";
+import { Gallery } from "./Gallery";
 import { useLockScroll } from "@/hooks/useLockScroll";
 import { FREE_SHIPPING_THRESHOLD } from "@/lib/commerce";
 import { useSmartSticky } from "@/hooks/useSmartSticky";
+import { useKeydown } from "@/hooks/useKeydown";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -20,12 +22,9 @@ export function ProductView({ slug }: { slug: string }) {
   const [size, setSize] = useState<string | null>(null);
   const [error, setError] = useState(false);
   const [added, setAdded] = useState(false);
-  const [zoom, setZoom] = useState<number | null>(null);
   const [guide, setGuide] = useState(false);
-  const [slide, setSlide] = useState(0);
   const [showSticky, setShowSticky] = useState(false);
   const addBtn = useRef<HTMLButtonElement>(null);
-  const carousel = useRef<HTMLDivElement>(null);
   const panel = useRef<HTMLDivElement>(null);
   const stickyTop = useSmartSticky(panel);
   const addToBag = useAddToBag();
@@ -46,8 +45,6 @@ export function ProductView({ slug }: { slug: string }) {
 
   const changeColor = (c: ColorId) => {
     setColor(c);
-    setSlide(0);
-    carousel.current?.scrollTo({ left: 0 });
     if (size && stockFor(product.slug, c, size) === 0) setSize(null);
     const url = new URL(window.location.href);
     url.searchParams.set("color", c);
@@ -57,7 +54,6 @@ export function ProductView({ slug }: { slug: string }) {
   const images = product.images[color];
   const qty = size ? stockFor(product.slug, color, size) : null;
   const allOut = product.sizes.every((s) => stockFor(product.slug, color, s) === 0);
-  const isRender = images[0].kind === "render";
 
   const add = () => {
     if (!size) {
@@ -74,40 +70,7 @@ export function ProductView({ slug }: { slug: string }) {
       <div className="lg:gutter lg:grid lg:grid-cols-12 lg:gap-10 lg:pt-6">
         {/* ── Gallery ── */}
         <div className="lg:col-span-7 xl:col-span-8">
-          {/* mobile carousel */}
-          <div className="relative lg:hidden">
-            <div
-              ref={carousel}
-              className="no-scrollbar flex snap-x snap-mandatory overflow-x-auto"
-              onScroll={(e) => setSlide(Math.round(e.currentTarget.scrollLeft / e.currentTarget.clientWidth))}
-              aria-label="Product images"
-              aria-roledescription="carousel"
-            >
-              {images.map((img, i) => (
-                <button key={img.src} onClick={() => setZoom(i)} className={`relative aspect-[4/5] w-full shrink-0 snap-center ${img.tone === "dark" ? "bg-ink" : "bg-studio"}`} aria-label={`Zoom image ${i + 1}`}>
-                  <Image src={img.src} alt={img.alt} fill priority={i === 0} sizes="100vw" className="object-cover" />
-                </button>
-              ))}
-            </div>
-            <div className="pointer-events-none absolute inset-x-0 bottom-4 flex justify-center gap-1.5">
-              {images.map((img, i) => (
-                <span key={img.src} className={`h-[3px] rounded-full transition-all duration-300 ${i === slide ? "w-6" : "w-[3px]"} ${images[slide]?.tone === "dark" ? "bg-bone" : "bg-ink"} ${i === slide ? "" : "opacity-40"}`} />
-              ))}
-            </div>
-            <span className={`absolute top-4 right-4 text-[11px] tabular-nums ${images[slide]?.tone === "dark" ? "text-bone" : "text-ink"}`}>
-              {slide + 1} / {images.length}
-            </span>
-          </div>
-
-          {/* desktop grid */}
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div key={color} className="hidden grid-cols-2 gap-2 lg:grid" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.45, ease: EASE }}>
-              {images.map((img, i) => (
-                <GalleryTile key={img.src} img={img} priority={i < 2} onZoom={() => setZoom(i)} wide={i === 0 && images.length % 2 === 1} />
-              ))}
-            </motion.div>
-          </AnimatePresence>
-          {isRender && <p className="gutter mt-3 text-[11px] text-mute lg:px-0">Studio renders shown. Final product photography to follow.</p>}
+          <Gallery images={images} colorName={COLORWAYS[color].name} />
         </div>
 
         {/* ── Purchase panel ── */}
@@ -245,29 +208,8 @@ export function ProductView({ slug }: { slug: string }) {
         )}
       </AnimatePresence>
 
-      <Lightbox images={images} index={zoom} onClose={() => setZoom(null)} onIndex={setZoom} />
       <SizeGuideModal open={guide} onClose={() => setGuide(false)} gender={product.gender} />
     </>
-  );
-}
-
-function GalleryTile({ img, priority, onZoom, wide }: { img: ProductImage; priority: boolean; onZoom: () => void; wide: boolean }) {
-  const [origin, setOrigin] = useState("50% 50%");
-  return (
-    <button
-      onClick={onZoom}
-      onMouseMove={(e) => {
-        const r = e.currentTarget.getBoundingClientRect();
-        setOrigin(`${((e.clientX - r.left) / r.width) * 100}% ${((e.clientY - r.top) / r.height) * 100}%`);
-      }}
-      className={`group relative aspect-[4/5] cursor-zoom-in overflow-hidden ${img.tone === "dark" ? "bg-ink" : "bg-studio"} ${wide ? "col-span-2 aspect-[8/5]" : ""}`}
-      aria-label={`Zoom: ${img.alt}`}
-    >
-      <Image src={img.src} alt={img.alt} fill priority={priority} sizes="(min-width:1280px) 33vw, 30vw" className="object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-[1.6]" style={{ transformOrigin: origin }} />
-      <span className={`absolute right-3 bottom-3 flex h-8 w-8 items-center justify-center rounded-full opacity-0 transition-opacity group-hover:opacity-100 ${img.tone === "dark" ? "bg-white/10 text-bone" : "bg-white/70 text-ink"}`}>
-        <ZoomIn className="h-4 w-4" strokeWidth={1.4} />
-      </span>
-    </button>
   );
 }
 
@@ -290,93 +232,9 @@ function Accordion({ title, children, defaultOpen = false }: { title: string; ch
   );
 }
 
-function Lightbox({ images, index, onClose, onIndex }: { images: ProductImage[]; index: number | null; onClose: () => void; onIndex: (i: number) => void }) {
-  const [zoomed, setZoomed] = useState(false);
-  const [origin, setOrigin] = useState("50% 50%");
-  useLockScroll(index !== null);
-
-  useEffect(() => {
-    setZoomed(false);
-  }, [index]);
-
-  useEffect(() => {
-    if (index === null) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-      if (e.key === "ArrowRight") onIndex((index + 1) % images.length);
-      if (e.key === "ArrowLeft") onIndex((index - 1 + images.length) % images.length);
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [index, images.length, onClose, onIndex]);
-
-  const img = index !== null ? images[index] : null;
-  const pan = (x: number, y: number, r: DOMRect) => setOrigin(`${((x - r.left) / r.width) * 100}% ${((y - r.top) / r.height) * 100}%`);
-
-  return (
-    <AnimatePresence>
-      {img && index !== null && (
-        <motion.div
-          className={`fixed inset-0 z-[95] ${img.tone === "dark" ? "bg-ink" : "bg-studio"}`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.35 }}
-          role="dialog"
-          aria-modal="true"
-          aria-label="Image zoom"
-          onKeyDown={(e) => {
-            if (e.key === "Escape") {
-              e.stopPropagation();
-              onClose();
-            }
-          }}
-        >
-          <div
-            className={`absolute inset-0 touch-none overflow-hidden ${zoomed ? "cursor-zoom-out" : "cursor-zoom-in"}`}
-            onClick={(e) => {
-              pan(e.clientX, e.clientY, e.currentTarget.getBoundingClientRect());
-              setZoomed((z) => !z);
-            }}
-            onPointerMove={(e) => zoomed && pan(e.clientX, e.clientY, e.currentTarget.getBoundingClientRect())}
-          >
-            <AnimatePresence mode="wait" initial={false}>
-              <motion.div key={img.src} className="absolute inset-0" initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.35, ease: EASE }}>
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  sizes="100vw"
-                  quality={90}
-                  className="object-contain transition-transform duration-500 ease-[var(--ease-out-expo)]"
-                  style={{ transform: zoomed ? "scale(2.4)" : "scale(1)", transformOrigin: origin }}
-                />
-              </motion.div>
-            </AnimatePresence>
-          </div>
-          <div className={`absolute inset-x-0 top-0 flex items-center justify-between p-4 ${img.tone === "dark" ? "text-bone" : "text-ink"}`}>
-            <span className="text-xs tabular-nums">{index + 1} / {images.length}</span>
-            <button onClick={onClose} className="p-2" aria-label="Close zoom" autoFocus><X className="h-6 w-6" strokeWidth={1.3} /></button>
-          </div>
-          {images.length > 1 && (
-            <div className={`absolute inset-x-0 bottom-6 flex justify-center gap-3 ${img.tone === "dark" ? "text-bone" : "text-ink"}`}>
-              <button onClick={() => onIndex((index - 1 + images.length) % images.length)} className="flex h-11 w-11 items-center justify-center rounded-full border border-current/20" aria-label="Previous image"><ChevronLeft className="h-5 w-5" strokeWidth={1.3} /></button>
-              <button onClick={() => onIndex((index + 1) % images.length)} className="flex h-11 w-11 items-center justify-center rounded-full border border-current/20" aria-label="Next image"><ChevronRight className="h-5 w-5" strokeWidth={1.3} /></button>
-            </div>
-          )}
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-}
-
 function SizeGuideModal({ open, onClose, gender }: { open: boolean; onClose: () => void; gender: "men" | "women" }) {
   useLockScroll(open);
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [onClose]);
+  useKeydown((e) => e.key === "Escape" && onClose(), open);
   return (
     <AnimatePresence>
       {open && (

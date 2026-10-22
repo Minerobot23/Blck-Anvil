@@ -89,8 +89,6 @@ export type RawProduct = {
   composition: string;
   features: string[];
   care: string[];
-  /** Colourways that also have real photography (see /public/photo) */
-  photoColor?: ColorId;
 };
 
 const MEN_SIZES = ["XS", "S", "M", "L", "XL", "XXL"];
@@ -134,11 +132,11 @@ export const CATALOG: RawProduct[] = [
     collections: ["training"],
     summary: "Second-skin fit with flatlock seams.",
     description:
-      "Close to the body without restricting it. Four-way stretch knit, contoured flatlock seams that sit flat under load, and a monogram placed on the sleeve rather than the chest.",
+      "Close to the body without restricting it. Four-way stretch knit, raglan sleeves and contoured flatlock seams that sit flat under load. Tonal monogram at the chest, wordmark across the upper back.",
     fit: "Compression fit. Designed to sit close to the body.",
     fabric: "Four-way stretch performance knit",
     composition: "Polyamide / elastane blend (placeholder — confirm with manufacturer)",
-    features: ["Flatlock seams", "Four-way stretch", "Sleeve monogram", "Back-neck wordmark"],
+    features: ["Flatlock seams", "Raglan sleeves", "Four-way stretch", "Chest monogram", "Back wordmark"],
     care: CARE_TECH,
   },
   {
@@ -202,7 +200,6 @@ export const CATALOG: RawProduct[] = [
     composition: "Cotton-rich fleece (placeholder — confirm with manufacturer)",
     features: ["Garment washed", "Double-layer hood", "Kangaroo pocket", "Ribbed cuffs and hem", "Embroidered chest monogram", "Printed back wordmark"],
     care: CARE_KNIT,
-    photoColor: "washed-black",
   },
   {
     slug: "performance-joggers",
@@ -325,6 +322,27 @@ export const CATALOG: RawProduct[] = [
     fabric: "Brushed stretch knit",
     composition: "Nylon / elastane blend (placeholder — confirm with manufacturer)",
     features: ["High-rise waistband", "Contour waist seam", "Hem monogram"],
+    care: CARE_TECH,
+  },
+  {
+    slug: "womens-training-shorts",
+    name: "Split Hem Training Shorts",
+    gender: "women",
+    category: "Shorts",
+    garment: "shorts",
+    price: 40,
+    colors: ["obsidian"],
+    sizes: WOMEN_SIZES,
+    isNew: true,
+    releasedAt: "2026-10-18",
+    collections: ["training"],
+    summary: "Relaxed fit. Curved split hem.",
+    description:
+      "A light, relaxed training short with an elastic drawcord waistband, a curved split hem for stride and a built-in liner. Monogram placed low on the left leg.",
+    fit: "Relaxed fit. Mid rise.",
+    fabric: "Lightweight stretch woven",
+    composition: "Polyester / elastane blend (placeholder — confirm with manufacturer)",
+    features: ["Elastic drawcord waistband", "Curved split hem", "Built-in liner", "Monogram at left hem"],
     care: CARE_TECH,
   },
   {

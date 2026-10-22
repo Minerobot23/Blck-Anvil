@@ -14,9 +14,80 @@ Cropped and upscaled 2× from the supplied reference board (1536×1024). Fine fo
 
 `hoodie-front`, `hoodie-back`, `detail-monogram`, `detail-wordmark`, `detail-label`, `detail-shoulder`, `lockup`.
 
+## Product photography — `public/products/<slug>/<colour>/<role>.webp` (BLK ANVL, supplied collages)
+
+Split from the supplied collages in `assets/collages/` by `scripts/split-collages.py` (panel boundaries measured per collage, divider lines trimmed, exported at native resolution — nothing is upscaled). Gallery data: `src/data/photo-manifest.json`.
+
+| Product | Colourway with photography | Panels |
+| --- | --- | --- |
+| Washed Heavyweight Hoodie | Washed Black | lifestyle, front, back, logo, label, cuff |
+| Essential Oversized Tee | Obsidian | lifestyle, front, back, logo, label, sleeve hem + tab |
+| Compression Tee | Obsidian | lifestyle, front, back, logo, label, seam |
+| Flared Leggings | Obsidian | lifestyle, front, back (split from one shared panel), logo, label, hem |
+| Split Hem Training Shorts (women, new product) | Obsidian | lifestyle, front, back, logo, label, split hem |
+| Contour Shorts | Obsidian | lifestyle, front, back, logo, label, seam, hem |
+| Training Shorts (men) | Obsidian | lifestyle, front, back, logo, label, split hem |
+
+Every other colourway still uses studio renders and the product page says "Photography for <colour> is pending".
+
+### Needs higher-resolution replacements
+
+All panels came from ~1310×1200 collages, so every file is below the 1000 px target for a main gallery image. Main-gallery images are displayed at no more than 1.25× native size (1.5× in the full-screen viewer); detail panels are shown as smaller contained images. Supply originals at ≥ 2000 px on the long edge for: 
+
+| File | Native size | Use |
+| --- | --- | --- |
+| `/products/washed-heavyweight-hoodie/washed-black/lifestyle.webp` | 757×891 | main gallery |
+| `/products/washed-heavyweight-hoodie/washed-black/front.webp` | 540×462 | main gallery |
+| `/products/washed-heavyweight-hoodie/washed-black/back.webp` | 540×421 | main gallery |
+| `/products/washed-heavyweight-hoodie/washed-black/logo-detail.webp` | 427×301 | detail thumbnail |
+| `/products/washed-heavyweight-hoodie/washed-black/label-detail.webp` | 436×301 | detail thumbnail |
+| `/products/washed-heavyweight-hoodie/washed-black/fabric-detail.webp` | 431×301 | detail thumbnail |
+| `/products/essential-oversized-tee/obsidian/lifestyle.webp` | 752×890 | main gallery |
+| `/products/essential-oversized-tee/obsidian/front.webp` | 545×463 | main gallery |
+| `/products/essential-oversized-tee/obsidian/back.webp` | 545×419 | main gallery |
+| `/products/essential-oversized-tee/obsidian/logo-detail.webp` | 427×302 | detail thumbnail |
+| `/products/essential-oversized-tee/obsidian/label-detail.webp` | 439×302 | detail thumbnail |
+| `/products/essential-oversized-tee/obsidian/fabric-detail.webp` | 428×302 | detail thumbnail |
+| `/products/compression-tee/obsidian/lifestyle.webp` | 762×890 | main gallery |
+| `/products/compression-tee/obsidian/front.webp` | 535×459 | main gallery |
+| `/products/compression-tee/obsidian/back.webp` | 535×423 | main gallery |
+| `/products/compression-tee/obsidian/logo-detail.webp` | 429×302 | detail thumbnail |
+| `/products/compression-tee/obsidian/label-detail.webp` | 437×302 | detail thumbnail |
+| `/products/compression-tee/obsidian/fabric-detail.webp` | 428×302 | detail thumbnail |
+| `/products/flared-leggings/obsidian/lifestyle.webp` | 715×862 | main gallery |
+| `/products/flared-leggings/obsidian/front.webp` | 291×862 | main gallery |
+| `/products/flared-leggings/obsidian/back.webp` | 291×862 | main gallery |
+| `/products/flared-leggings/obsidian/logo-detail.webp` | 429×330 | detail thumbnail |
+| `/products/flared-leggings/obsidian/label-detail.webp` | 434×330 | detail thumbnail |
+| `/products/flared-leggings/obsidian/fabric-detail.webp` | 431×330 | detail thumbnail |
+| `/products/womens-training-shorts/obsidian/lifestyle.webp` | 751×861 | main gallery |
+| `/products/womens-training-shorts/obsidian/front.webp` | 546×463 | main gallery |
+| `/products/womens-training-shorts/obsidian/back.webp` | 546×390 | main gallery |
+| `/products/womens-training-shorts/obsidian/logo-detail.webp` | 428×331 | detail thumbnail |
+| `/products/womens-training-shorts/obsidian/label-detail.webp` | 434×331 | detail thumbnail |
+| `/products/womens-training-shorts/obsidian/fabric-detail.webp` | 432×331 | detail thumbnail |
+| `/products/contour-shorts/obsidian/lifestyle.webp` | 702×850 | main gallery |
+| `/products/contour-shorts/obsidian/front.webp` | 597×426 | main gallery |
+| `/products/contour-shorts/obsidian/back.webp` | 597×416 | main gallery |
+| `/products/contour-shorts/obsidian/logo-detail.webp` | 350×341 | detail thumbnail |
+| `/products/contour-shorts/obsidian/label-detail.webp` | 318×341 | detail thumbnail |
+| `/products/contour-shorts/obsidian/fabric-detail.webp` | 284×341 | detail thumbnail |
+| `/products/contour-shorts/obsidian/fabric-detail-2.webp` | 336×341 | detail thumbnail |
+| `/products/training-shorts/obsidian/lifestyle.webp` | 739×870 | main gallery |
+| `/products/training-shorts/obsidian/front.webp` | 560×445 | main gallery |
+| `/products/training-shorts/obsidian/back.webp` | 560×417 | main gallery |
+| `/products/training-shorts/obsidian/logo-detail.webp` | 433×321 | detail thumbnail |
+| `/products/training-shorts/obsidian/label-detail.webp` | 429×321 | detail thumbnail |
+| `/products/training-shorts/obsidian/fabric-detail.webp` | 434×321 | detail thumbnail |
+
+Notes:
+- The oversized tee photography reads as a washed black. It is mapped to **Obsidian** (the tee's existing black colourway). If it is meant to be a washed colourway, add `washed-black` to that product's colours and move the folder.
+- The sports bra worn in the women's lifestyle shots (strappy scoop-neck) does not match the catalogue's Seamless Sports Bra; no product shots were supplied for it, so it is not used as product imagery.
+- The supplied set contains no sweatpants/joggers; Performance Joggers still use renders.
+
 ## Product renders — `public/products/<slug>/<colour>-<shot>.webp`
 
-208 images (16 products × their colourways × 4 shots: front, back, logo detail, fabric/construction detail). Produced by `scripts/garments.mjs`. They are illustrations of the intended product, consistent across the catalogue, with branding placed per `docs/IMAGE_PROMPTS.md`. **Replace with product photography**; same filenames are picked up automatically.
+208 images (16 original products × their colourways × 4 shots: front, back, logo detail, fabric/construction detail). Produced by `scripts/garments.mjs`. They are illustrations of the intended product, consistent across the catalogue, with branding placed per `docs/IMAGE_PROMPTS.md`. **Replace with product photography**; same filenames are picked up automatically.
 
 Missing per product (needs photography or generation): **lifestyle/model view** and **alternate on-body angle**. Prompts are in `docs/IMAGE_PROMPTS.md`.
 
