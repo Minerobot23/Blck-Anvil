@@ -16,10 +16,10 @@ const PANELS: Panel[] = [
   { kind: "text" },
   { kind: "image", src: "/photo/hoodie-back.webp", alt: "Washed Heavyweight Hoodie, back, with BLK ANVL wordmark", caption: "01 — Washed Heavyweight Hoodie", href: "/products/washed-heavyweight-hoodie", tone: "dark", w: "md:w-[34vw]" },
   { kind: "image", src: "/campaign/rack.webp", alt: "Rows of dumbbells in a monochrome training space", caption: "Training floor", tone: "dark", w: "md:w-[52vw]", offset: "md:mt-[12vh]" },
-  { kind: "image", src: "/products/essential-oversized-tee/obsidian-front.webp", alt: "Essential Oversized Tee in Obsidian", caption: "02 — Essential Oversized Tee", href: "/products/essential-oversized-tee", tone: "light", w: "md:w-[30vw]" },
-  { kind: "image", src: "/products/sculpt-leggings/obsidian-front.webp", alt: "Sculpt Leggings in Obsidian", caption: "03 — Sculpt Leggings", href: "/products/sculpt-leggings", tone: "light", w: "md:w-[26vw]", offset: "md:mt-[18vh]" },
+  { kind: "image", src: "/products/essential-oversized-tee/obsidian/lifestyle.webp", alt: "Essential Oversized Tee worn in the gym", caption: "02 — Essential Oversized Tee", href: "/products/essential-oversized-tee", tone: "dark", w: "md:w-[30vw]" },
+  { kind: "image", src: "/products/flared-leggings/obsidian/lifestyle.webp", alt: "Flared Leggings worn in the gym", caption: "03 — Flared Leggings", href: "/products/flared-leggings", tone: "dark", w: "md:w-[26vw]", offset: "md:mt-[18vh]" },
   { kind: "image", src: "/photo/detail-label.webp", alt: "Woven BLK ANVL neck label inside a washed black hoodie", caption: "Woven label, every piece", tone: "dark", w: "md:w-[40vw]" },
-  { kind: "image", src: "/products/training-zip-jacket/obsidian-front.webp", alt: "Training Zip Jacket in Obsidian", caption: "04 — Training Zip Jacket", href: "/products/training-zip-jacket", tone: "light", w: "md:w-[30vw]", offset: "md:mt-[8vh]" },
+  { kind: "image", src: "/products/training-shorts/obsidian/lifestyle.webp", alt: "Compression Tee and Training Shorts worn in the gym", caption: "04 — Training Shorts", href: "/products/training-shorts", tone: "dark", w: "md:w-[30vw]", offset: "md:mt-[8vh]" },
 ];
 
 export function Uniform() {
@@ -64,7 +64,7 @@ export function Uniform() {
               <p className="eyebrow mb-6 text-mute">Editorial — 01</p>
               <h2 className="display text-[clamp(80px,12vw,220px)]">The<br />Uniform</h2>
               <p className="mt-8 max-w-sm text-sm leading-relaxed text-fog">
-                Eight pieces that cover the week — the session, the commute, the rest day. Tonal colour, quiet branding, nothing that needs explaining.
+                The pieces that cover the week — the session, the commute, the rest day. Tonal colour, quiet branding, nothing that needs explaining.
               </p>
               <Link href="/collections/the-uniform" className="link-underline mt-8 self-start text-xs tracking-[0.18em] uppercase">Shop the collection</Link>
             </div>

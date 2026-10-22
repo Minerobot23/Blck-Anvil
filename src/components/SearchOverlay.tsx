@@ -11,7 +11,7 @@ import { formatPrice, searchProducts, COLORWAYS } from "@/lib/products";
 import { useLockScroll } from "@/hooks/useLockScroll";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
-const POPULAR = ["Hoodie", "Leggings", "Shorts", "Oversized tee", "Washed black", "Sports bra"];
+const POPULAR = ["Hoodie", "Oversized tee", "Compression", "Leggings", "Shorts"];
 
 export function SearchOverlay() {
   const { searchOpen, setSearch } = useUI();
@@ -135,7 +135,7 @@ export function SearchOverlay() {
                             </div>
                             <p className="mt-2 text-xs">{p.name}</p>
                             <p className="text-xs text-mute">
-                              {p.gender === "men" ? "Men" : "Women"} · {formatPrice(p.price)} · {p.colors.map((c) => COLORWAYS[c].name).length} colours
+                              {p.gender === "men" ? "Men" : "Women"} · {formatPrice(p.price)} · {p.colors.map((c) => COLORWAYS[c].name).join(", ")}
                             </p>
                           </Link>
                         </motion.li>
@@ -144,7 +144,7 @@ export function SearchOverlay() {
                   </ul>
                 </div>
               ) : (
-                <p className="mt-8 text-sm text-mute">No results for “{q}”. Try “hoodie”, “leggings” or a colour like “bone”.</p>
+                <p className="mt-8 text-sm text-mute">No results for “{q}”. Try “hoodie”, “leggings” or “shorts”.</p>
               )}
             </div>
           </motion.div>

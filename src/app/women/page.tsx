@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { ShopPage } from "@/components/shop/ShopPage";
 
-export const metadata: Metadata = { title: "Women", description: "BLK ANVL women's training apparel: sculpt leggings, seamless sports bras, oversized hoodies and more." };
+export const metadata: Metadata = { title: "Women", description: "BLK ANVL women's training apparel: flared leggings and training shorts." };
 
 export default function Page() {
-  return <ShopPage title={["Women"]} intro="Sculpted knits, seamless support and oversized layers." preset={{ gender: "women" }} />;
+  return <ShopPage title={["Women"]} intro="Flared leggings and training shorts." preset={{ gender: "women" }} />;
 }

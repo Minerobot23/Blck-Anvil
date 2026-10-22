@@ -61,10 +61,10 @@ export function ProductRail({ title, eyebrow, products, href, hrefLabel = "View 
 }
 
 const CATS = [
-  { label: "Hoodies", href: "/shop?category=Hoodies", img: "/products/washed-heavyweight-hoodie/bone-front.webp", n: "01" },
-  { label: "Leggings", href: "/women?category=Leggings", img: "/products/sculpt-leggings/slate-front.webp", n: "02" },
-  { label: "Tees", href: "/shop?category=T-Shirts", img: "/products/essential-oversized-tee/obsidian-front.webp", n: "03" },
-  { label: "Shorts", href: "/shop?category=Shorts", img: "/products/training-shorts/graphite-front.webp", n: "04" },
+  { label: "Hoodies", href: "/shop?category=Hoodies", img: "/products/washed-heavyweight-hoodie/washed-black/lifestyle.webp", n: "01" },
+  { label: "Leggings", href: "/women?category=Leggings", img: "/products/flared-leggings/obsidian/lifestyle.webp", n: "02" },
+  { label: "Tees", href: "/shop?category=T-Shirts", img: "/products/essential-oversized-tee/obsidian/lifestyle.webp", n: "03" },
+  { label: "Shorts", href: "/shop?category=Shorts", img: "/products/training-shorts/obsidian/lifestyle.webp", n: "04" },
 ];
 
 export function CategoryRail() {
@@ -77,10 +77,10 @@ export function CategoryRail() {
       <div className="grid grid-cols-2 gap-3 md:gap-4 lg:grid-cols-4">
         {CATS.map((c, i) => (
           <Reveal key={c.label} delay={i * 0.07}>
-            <Link href={c.href} className="group relative block aspect-[4/5] overflow-hidden bg-studio">
+            <Link href={c.href} className="group relative block aspect-[4/5] overflow-hidden bg-char">
               <Image src={c.img} alt="" fill sizes="(min-width:1024px) 25vw, 50vw" className="object-cover transition-transform duration-[1.4s] ease-[var(--ease-out-expo)] group-hover:scale-[1.05]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent opacity-80 transition-opacity duration-700 group-hover:opacity-100" />
-              <span className="absolute top-3 left-3 text-[10px] tracking-[0.2em] text-ink/60">{c.n}</span>
+              <span className="absolute top-3 left-3 text-[10px] tracking-[0.2em] text-bone/70">{c.n}</span>
               <div className="absolute inset-x-3 bottom-3 flex items-end justify-between md:inset-x-5 md:bottom-5">
                 <span className="display text-[clamp(36px,5vw,72px)] text-bone">{c.label}</span>
                 <ArrowUpRight className="mb-2 h-5 w-5 -translate-x-1 translate-y-1 text-bone opacity-0 transition duration-500 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:opacity-100" strokeWidth={1.3} />

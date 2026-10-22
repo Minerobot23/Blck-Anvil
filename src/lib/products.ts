@@ -120,17 +120,12 @@ export const COLLECTIONS: Record<CollectionId, { title: string; blurb: string; i
   "the-uniform": {
     title: "The Uniform",
     blurb: "The core pieces. Tonal, considered, and built to be worn on repeat.",
-    image: "/photo/hoodie-back.webp",
+    image: "/products/washed-heavyweight-hoodie/washed-black/back.webp",
   },
   heavyweight: {
     title: "Heavyweight",
     blurb: "Dense fleece and jersey with a garment-washed hand.",
     image: "/photo/detail-shoulder.webp",
-  },
-  seamless: {
-    title: "Seamless",
-    blurb: "Knitted in one piece. Zoned structure, minimal seams.",
-    image: "/products/seamless-long-sleeve/obsidian-texture.webp",
   },
   training: {
     title: "Training",
@@ -139,9 +134,11 @@ export const COLLECTIONS: Record<CollectionId, { title: string; blurb: string; i
   },
 };
 
+const CATEGORY_ORDER: Category[] = ["Hoodies", "T-Shirts", "Leggings", "Shorts", "Tanks", "Long Sleeves", "Jackets", "Joggers", "Sports Bras"];
+/** Categories that actually have products, per gender. */
 export const CATEGORIES: Record<Gender, Category[]> = {
-  men: ["T-Shirts", "Tanks", "Hoodies", "Long Sleeves", "Jackets", "Shorts", "Joggers"],
-  women: ["Leggings", "Sports Bras", "T-Shirts", "Tanks", "Hoodies", "Jackets", "Shorts"],
+  men: CATEGORY_ORDER.filter((c) => CATALOG.some((p) => p.gender === "men" && p.category === c)),
+  women: CATEGORY_ORDER.filter((c) => CATALOG.some((p) => p.gender === "women" && p.category === c)),
 };
 
 export const ALL_COLORS = Object.values(COLORWAYS);

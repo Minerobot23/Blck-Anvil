@@ -15,7 +15,7 @@ Deploys to Vercel with no extra configuration. Optional env: `NEXT_PUBLIC_SITE_U
 | Area | Where |
 | --- | --- |
 | Logo geometry (single source of truth) | `src/lib/brand.ts` → `<Monogram/>`, `<Wordmark/>` in `src/components/Logo.tsx`, standalone SVGs in `public/brand/` (`node scripts/logo-svg.mjs`) |
-| Product catalog (16 products, 7 colourways) | `src/data/catalog.ts` |
+| Product catalog (7 products) | `src/data/catalog.ts` |
 | Derived data, inventory, search | `src/lib/products.ts` |
 | Bag state (persisted) | `src/store/cart.ts` |
 | Checkout boundary | `src/lib/commerce.ts`, `src/app/api/checkout/route.ts` |
@@ -29,7 +29,7 @@ Routes: `/`, `/shop`, `/men`, `/women`, `/new`, `/collections`, `/collections/[s
 
 See **`docs/ASSETS.md`** for the full manifest. In short:
 
-- **Product photography** (`public/products/<slug>/<colour>/`) is split from the supplied BLK ANVL collages (`assets/collages/`) with `python3 scripts/split-collages.py`, which also writes `src/data/photo-manifest.json`. Seven products have real photography in their black colourway.
+- **Product photography** (`public/products/<slug>/<colour>/`) is split from the supplied BLK ANVL collages (`assets/collages/`) with `python3 scripts/split-collages.py`, which also writes `src/data/photo-manifest.json`. The catalogue contains exactly these seven products.
 - **Brand photography** (`public/photo/`) is cropped from the original hoodie reference board and used in editorial sections.
 - **Other colourways** use **studio renders** produced by the in-repo garment render engine (`scripts/garments.mjs`, `scripts/render-products.mjs`). Product pages say photography for that colour is pending.
 - **Campaign mood images** (`public/campaign/`) are licensed Unsplash photographs, graded to monochrome. They show training environments and athletes, **not BLK ANVL product**, and are never used as product imagery. Replace with a BLK ANVL campaign shoot.

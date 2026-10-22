@@ -124,7 +124,7 @@ export function ProductCard({ product, priority = false, sizes = "(min-width: 12
           </h3>
           <p className="mt-0.5 text-xs text-mute">
             {COLORWAYS[color].name}
-            <span className="hidden sm:inline"> · {product.colors.length} colours</span>
+            {product.colors.length > 1 && <span className="hidden sm:inline"> · {product.colors.length} colours</span>}
           </p>
         </div>
         <p className="shrink-0 text-[13px] tabular-nums">{formatPrice(product.price)}</p>

@@ -28,7 +28,7 @@ Split from the supplied collages in `assets/collages/` by `scripts/split-collage
 | Contour Shorts | Obsidian | lifestyle, front, back, logo, label, seam, hem |
 | Training Shorts (men) | Obsidian | lifestyle, front, back, logo, label, split hem |
 
-Every other colourway still uses studio renders and the product page says "Photography for <colour> is pending".
+Each product is offered in its photographed colourway only. If a colourway without photography is added later, the gallery falls back to renders and says "Photography for <colour> is pending".
 
 ### Needs higher-resolution replacements
 
@@ -83,13 +83,10 @@ All panels came from ~1310×1200 collages, so every file is below the 1000 px ta
 Notes:
 - The oversized tee photography reads as a washed black. It is mapped to **Obsidian** (the tee's existing black colourway). If it is meant to be a washed colourway, add `washed-black` to that product's colours and move the folder.
 - The sports bra worn in the women's lifestyle shots (strappy scoop-neck) does not match the catalogue's Seamless Sports Bra; no product shots were supplied for it, so it is not used as product imagery.
-- The supplied set contains no sweatpants/joggers; Performance Joggers still use renders.
 
-## Product renders — `public/products/<slug>/<colour>-<shot>.webp`
+## Product renders
 
-208 images (16 original products × their colourways × 4 shots: front, back, logo detail, fabric/construction detail). Produced by `scripts/garments.mjs`. They are illustrations of the intended product, consistent across the catalogue, with branding placed per `docs/IMAGE_PROMPTS.md`. **Replace with product photography**; same filenames are picked up automatically.
-
-Missing per product (needs photography or generation): **lifestyle/model view** and **alternate on-body angle**. Prompts are in `docs/IMAGE_PROMPTS.md`.
+The catalogue now contains only the seven supplied products, each in its photographed colourway, so no studio renders ship with the site. The render engine (`scripts/garments.mjs`, `scripts/render-products.mjs`) is kept for future colourways and products without photography.
 
 ## Campaign mood — `public/campaign/` (Unsplash License, graded monochrome)
 

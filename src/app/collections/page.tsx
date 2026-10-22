@@ -4,7 +4,7 @@ import Link from "next/link";
 import { COLLECTIONS, PRODUCTS, type CollectionId } from "@/lib/products";
 import { Reveal, SplitHeading } from "@/components/Motion";
 
-export const metadata: Metadata = { title: "Collections", description: "BLK ANVL collections: The Uniform, Heavyweight, Seamless and Training." };
+export const metadata: Metadata = { title: "Collections", description: "BLK ANVL collections: The Uniform, Heavyweight and Training." };
 
 export default function Page() {
   const ids = Object.keys(COLLECTIONS) as CollectionId[];
